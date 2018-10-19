@@ -21,15 +21,55 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Sign Up</a>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="sign-in-form" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown"><b>Log In</b> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="reset">
+										<div class="form-group">
+											 <input required class="form-control input-md" placeholder="E-mail Address" name="credentials[email]" type="email">
+										</div>
+										<div class="form-group">
+											 <input required class="form-control input-md" placeholder="Password" name="credentials[password]" type="password">
+										</div>
+										<div class="form-group">
+											 <input class="btn btn-md btn-primary btn-block" value="Sign In" type="submit">
+										</div>
+								 </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Sign In</a>
+          <ul class="nav navbar-nav navbar-right">
+          <li id="change-password-form" class="dropdown hidden">
+            <a class="dropdown-toggle" data-toggle="dropdown"><b>Change Password</b> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    <form class="reset">
+										<div class="form-group">
+											 <input required class="form-control input-md" placeholder="Old Password" name="passwords[old]" type="password">
+										</div>
+										<div class="form-group">
+											 <input required class="form-control input-md" placeholder="New Password" name="passwords[new]" type="password">
+										</div>
+										<div class="form-group">
+											 <input class="btn btn-md btn-primary btn-block" value="Submit" type="submit">
+										</div>
+								 </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </li>
+        </ul>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <ul id="sign-out" class="hidden"> Sign Out </ul>
           </li>
         </ul>
       </div>
@@ -38,10 +78,10 @@
   <div class="container-fluid">
     <div class="jumbotron">
       <br>
-      <h1>Hello,</h1>
+      <h1>Vertical Mile Challenge</h1>
       <br>
       <p>Are you ready to take on the Vertical Mile Challenge!</p>
-      <p>Sign up now and keep track of your progress towards the verticle mile.</p>
+      <p>Sign up now and keep track of your progress towards your goals.</p>
     </div>
   </div>
   <div class="container-fluid">
@@ -49,7 +89,7 @@
         <div id="sign-up-form" class="col-md-6 mx-auto">
                 <div class="card card-body">
                     <h3 class="text-center mb-4">Sign-up</h3>
-                    <form>
+                    <form class="reset">
                         <div class="form-group">
                             <input required class="form-control input-md" placeholder="E-mail Address" name="credentials[email]" type="email">
                         </div>
@@ -65,21 +105,40 @@
         </div>
     </div>
     <div class="row">
-        <div id="sign-in-form" class="col-md-6 mx-auto">
+        <div id="log-form" class="col-md-6 mx-auto hidden">
                 <div class="card card-body">
-                    <h3 class="text-center mb-4">Sign-in</h3>
-                    <form>
+                    <h3 class="text-center mb-4">Log</h3>
+                    <form class="reset">
                         <div class="form-group">
-                            <input required class="form-control input-md" placeholder="E-mail Address" name="credentials[email]" type="email">
+                            <input required class="form-control input-md" placeholder="YYYY-MM-DD" name="log[date]" type="date">
                         </div>
                         <div class="form-group">
-                            <input required class="form-control input-md" placeholder="Password" name="credentials[password]" value="" type="password">
+                            <input required class="form-control input-md" placeholder="Feet" name="log[feet]" type="text">
                         </div>
-                        <input class="btn btn-md btn-primary btn-block" value="Sign In" type="submit">
+                        <div class="form-group">
+                            <input required class="form-control input-md" placeholder="Activity" name="log[activity]" type="text">
+                        </div>
+                        <input class="btn btn-md btn-primary btn-block" value="Submit" type="submit">
                     </form>
                 </div>
         </div>
     </div>
+    <div class="row">
+        <div id="show-one-log" class="col-md-6 mx-auto hidden">
+                <div class="card card-body">
+                    <h3 class="text-center mb-4">Show Log</h3>
+                    <form class="reset">
+                        <div class="form-group">
+                            <input required class="form-control input-md" placeholder="Log ID" name="log[id]" type="text">
+                        </div>
+                        <input class="btn btn-md btn-primary btn-block" value="Submit" type="submit">
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+<div id="content">
+
 </div>
 </body>
 
