@@ -16,14 +16,14 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger">VMC</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="navbar-brand js-scroll-trigger">VMC</div>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> -->
+      <!-- </button> -->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="nav navbar-nav navbar-right">
           <li id="sign-in-form" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown"><b>Log In</b> <span class="caret"></span></a>
+            <div class="dropdown-toggle" data-toggle="dropdown"><b>Log In</b> <span class="caret"></span></div>
             <ul class="dropdown-menu">
               <li>
                 <div class="row">
@@ -46,7 +46,7 @@
           </li>
           <ul class="nav navbar-nav navbar-right">
           <li id="change-password-form" class="dropdown hidden">
-            <a class="dropdown-toggle" data-toggle="dropdown"><b>Change Password</b> <span class="caret"></span></a>
+            <div class="dropdown-toggle" data-toggle="dropdown"><b>Change Password</b> <span class="caret"></span></div>
             <ul class="dropdown-menu">
               <li>
                 <div class="row">
@@ -118,7 +118,29 @@
                         <div class="form-group">
                             <input required class="form-control input-md" placeholder="Activity" name="log[activity]" type="text">
                         </div>
-                        <input class="btn btn-md btn-primary btn-block" value="Submit" type="submit">
+                        <input class="btn btn-md btn-primary btn-block" value="Log" type="submit">
+                    </form>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="update-log-form" class="col-md-6 mx-auto hidden">
+                <div class="card card-body">
+                    <h3 class="text-center mb-4">Update Log</h3>
+                    <form class="reset">
+                      <div class="form-group">
+                          <input required class="form-control input-md" placeholder="ID" name="log[id]" type="text">
+                      </div>
+                        <div class="form-group">
+                            <input required class="form-control input-md" placeholder="YYYY-MM-DD" name="log[date]" type="date">
+                        </div>
+                        <div class="form-group">
+                            <input required class="form-control input-md" placeholder="Feet" name="log[feet]" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input required class="form-control input-md" placeholder="Activity" name="log[activity]" type="text">
+                        </div>
+                        <input class="btn btn-md btn-primary btn-block" value="Update" type="submit">
                     </form>
                 </div>
         </div>
@@ -131,7 +153,7 @@
                         <div class="form-group">
                             <input required class="form-control input-md" placeholder="Log ID" name="log[id]" type="text">
                         </div>
-                        <input class="btn btn-md btn-primary btn-block" value="Submit" type="submit">
+                        <input class="btn btn-md btn-primary btn-block" value="Show" type="submit">
                     </form>
                 </div>
         </div>

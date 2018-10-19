@@ -17,6 +17,7 @@ const signInSuccess = (response) => {
   $('#sign-out').removeClass('hidden')
   $('#show-one-log').removeClass('hidden')
   $('#log-form').removeClass('hidden')
+  $('#update-log-form').removeClass('hidden')
   $('.reset').trigger('reset')
 }
 
@@ -34,6 +35,9 @@ const signOutSuccess = () => {
   $('#change-password-form').addClass('hidden')
   $('#show-one-log').addClass('hidden')
   $('#sign-up-form').show()
+  $('#log-form').addClass('hidden')
+  $('#update-log-form').addClass('hidden')
+  $('#content').empty()
 }
 
 const signOutFailure = () => {}

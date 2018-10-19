@@ -28,9 +28,10 @@ const onShowOneLog = (event) => {
     .catch(ui.showOneLogFailure)
 }
 
-const onUpdateLog = (date, feet, activity) => {
+const onUpdateLog = (event) => {
   event.preventDefault()
-  api.updateLog(date, feet, activity)
+  const logData = getFormFields(event.target)
+  api.updateLog(logData)
     .then(ui.updateLogSuccess)
     .catch(ui.updateLogFailure)
 }

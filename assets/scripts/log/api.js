@@ -37,19 +37,16 @@ const showOneLog = (logData) => {
   })
 }
 
-const updateLog = (date, feet, activity) => {
-  const logId = store.log.id
+const updateLog = (logData) => {
+  const logId = logData.log.id
+  console.log(logId)
   return $.ajax({
-    url: config.apiUrl + `/games/${logId}`,
+    url: config.apiUrl + `/logs/${logId}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    log: {
-      'date': date,
-      'feet': feet,
-      'activity': activity
-    }
+    data: logData
   })
 }
 
