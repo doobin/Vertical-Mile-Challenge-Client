@@ -15,6 +15,12 @@ const showAllLogsSuccess = (response) => {
     $('#content').append(logHTML)
     $('.reset').trigger('reset')
   })
+  let totalFeet = 0
+  for (let i = 0; i < response.logs.length; i++) {
+    totalFeet += response.logs[i].feet
+  }
+  console.log(totalFeet)
+  return totalFeet
 }
 
 const showAllLogsFailure = () => {
