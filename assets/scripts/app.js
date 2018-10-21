@@ -22,4 +22,5 @@ $(() => {
   $('#log-form').on('submit', logEvents.onNewLog)
   $('#show-one-log').on('submit', logEvents.onShowOneLog)
   $('#update-log-form').on('submit', logEvents.onUpdateLog)
+  $('#show-all-logs').on('click', logEvents.onShowAllLogs)
 })

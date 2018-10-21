@@ -9,23 +9,29 @@ const showAllLogsSuccess = (response) => {
       <h4>Log ID: ${log.id}</h4>
       <p>Date: ${log.date}<p>
       <p>Vertical Feet: ${log.feet}</p>
+      <p>Activity: ${log.activity}</p>
+      <p>User ID: ${log.user_id}</p>
       `)
     $('#content').append(logHTML)
+    $('.reset').trigger('reset')
   })
 }
 
 const showAllLogsFailure = () => {
   $('#content').html('Show All Logs Failed')
   $('#content').css('color', 'red')
+  $('.reset').trigger('reset')
 }
 
 const showOneLogSuccess = (response) => {
+  $('#content').html('')
   const log = response.log
   const logHTML = (`
     <h4>Log ID: ${log.id}</h4>
     <p>Date: ${log.date}<p>
     <p>Feet: ${log.feet}</p>
     <p>Activity: ${log.activity}</p>
+    <p>User ID: ${log.user_id}</p>
     `)
   $('#content').append(logHTML)
   $('.reset').trigger('reset')
