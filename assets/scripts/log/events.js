@@ -36,9 +36,18 @@ const onUpdateLog = (event) => {
     .catch(ui.updateLogFailure)
 }
 
+const onDestroyLog = (event) => {
+  event.preventDefault()
+  const logData = getFormFields(event.target)
+  api.destroyLog(logData)
+    .then(ui.destroyLogSuccess)
+    .catch(ui.destroyLogFailure)
+}
+
 module.exports = {
   onShowAllLogs,
   onNewLog,
   onShowOneLog,
-  onUpdateLog
+  onUpdateLog,
+  onDestroyLog
 }

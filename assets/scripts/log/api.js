@@ -50,9 +50,23 @@ const updateLog = (logData) => {
   })
 }
 
+const destroyLog = (logData) => {
+  const logId = logData.log.id
+  console.log(logId)
+  return $.ajax({
+    url: config.apiUrl + `/logs/${logId}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: logData
+  })
+}
+
 module.exports = {
   newLog,
   getAllLogs,
   showOneLog,
-  updateLog
+  updateLog,
+  destroyLog
 }

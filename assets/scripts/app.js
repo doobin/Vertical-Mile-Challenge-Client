@@ -20,7 +20,8 @@ $(() => {
 // Log events
 $(() => {
   $('#log-form').on('submit', logEvents.onNewLog)
-  $('#show-one-log').on('submit', logEvents.onShowOneLog)
   $('#update-log-form').on('submit', logEvents.onUpdateLog)
+  $('#destroy-log').on('submit', logEvents.onDestroyLog)
+  $('#show-one-log').on('submit', logEvents.onShowOneLog)
   $('#show-all-logs').on('click', logEvents.onShowAllLogs)
 })

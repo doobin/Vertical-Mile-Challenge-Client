@@ -19,6 +19,7 @@ const signInSuccess = (response) => {
   $('#show-all-logs').removeClass('hidden')
   $('#log-form').removeClass('hidden')
   $('#update-log-form').removeClass('hidden')
+  $('#destroy-log').removeClass('hidden')
   $('.reset').trigger('reset')
 }
 
@@ -39,6 +40,7 @@ const signOutSuccess = () => {
   $('#sign-up-form').show()
   $('#log-form').addClass('hidden')
   $('#update-log-form').addClass('hidden')
+  $('#destroy-log').addClass('hidden')
   $('#content').empty()
 }
 

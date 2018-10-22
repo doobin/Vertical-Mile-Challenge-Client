@@ -59,15 +59,30 @@ const newLogSuccess = (data) => {
 const newLogFailure = () => {
   $('#display-message').html('New Log Failed')
   $('#display-message').css('color', 'red')
+  $('.reset').trigger('reset')
 }
 
 const updateLogSuccess = (data) => {
   store.log = data.log
+  $('.reset').trigger('reset')
 }
 
 const updateLogFailure = () => {
   $('#display-message').html('Update Log Failed')
   $('#display-message').css('color', 'red')
+  $('.reset').trigger('reset')
+}
+
+const destroyLogSuccess = (data) => {
+  $('#display-message').html('Delete Log Sucess')
+  $('#display-message').css('color', 'green')
+  $('.reset').trigger('reset')
+}
+
+const destroyLogFailure = () => {
+  $('#display-message').html('Delete Log Failed')
+  $('#display-message').css('color', 'red')
+  $('.reset').trigger('reset')
 }
 
 module.exports = {
@@ -78,5 +93,7 @@ module.exports = {
   newLogSuccess,
   newLogFailure,
   updateLogSuccess,
-  updateLogFailure
+  updateLogFailure,
+  destroyLogSuccess,
+  destroyLogFailure
 }
