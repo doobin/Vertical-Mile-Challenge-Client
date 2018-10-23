@@ -176,10 +176,16 @@
               <input required class="form-control input-md" placeholder="MM-DD-YYYY" name="log[date]" type="date">
             </div>
             <div class="form-group">
-              <input required class="form-control input-md" placeholder="Feet" name="log[feet]" type="text">
+              <input required class="form-control input-md" placeholder="Enter Feet" name="log[feet]" type="text">
             </div>
             <div class="form-group">
-              <input required class="form-control input-md" placeholder="Activity" name="log[activity]" type="text">
+              <select required class="form-control input-md" name="log[activity]">
+                <option value="">Select Activity</option>
+                <option value="hike">Hike</option>
+                <option value="run">Run</option>
+                <option value="climb">Climb</option>
+                <option value="ride">Ride</option>
+              </select>
             </div>
             <input class="btn btn-md btn-primary btn-block" value="Log" type="submit">
           </form>
@@ -202,7 +208,13 @@
               <input required class="form-control input-md" placeholder="Feet" name="log[feet]" type="text">
             </div>
             <div class="form-group">
-              <input required class="form-control input-md" placeholder="Activity" name="log[activity]" type="text">
+              <select required class="form-control input-md" name="log[activity]">
+                <option value="">Select Activity</option>
+                <option value="hike">Hike</option>
+                <option value="run">Run</option>
+                <option value="climb">Climb</option>
+                <option value="ride">Ride</option>
+              </select>
             </div>
             <input class="btn btn-md btn-primary btn-block" value="Update" type="submit">
           </form>

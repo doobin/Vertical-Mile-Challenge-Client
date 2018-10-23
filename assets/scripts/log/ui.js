@@ -35,7 +35,7 @@ const showOneLogSuccess = (response) => {
   const logHTML = (`
     <h4>Log ID: ${log.id}</h4>
     <p>Date: ${log.date}<p>
-    <p>Feet: ${log.feet}</p>
+    <p>Vertical Feet: ${log.feet}</p>
     <p>Activity: ${log.activity}</p>
     <p>User ID: ${log.user_id}</p>
     `)
