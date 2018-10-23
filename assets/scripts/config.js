@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://verticle-mile-challenge.herokuapp.com',
+  production: 'https://vertical-mile-challenge.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
