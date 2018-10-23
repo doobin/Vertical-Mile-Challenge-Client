@@ -3,12 +3,12 @@
 const store = require('../store.js')
 
 const signUpSuccess = () => {
-  // $('#sign-up-form').hide()
   $('.reset').trigger('reset')
   successAlert()
 }
 
 const signUpFailure = () => {
+  $('.reset').trigger('reset')
   successFail()
 }
 
