@@ -3,17 +3,18 @@
 const store = require('../store.js')
 
 const signUpSuccess = () => {
-  $('#sign-up-form').hide()
+  // $('#sign-up-form').hide()
   $('.reset').trigger('reset')
+  successAlert()
 }
 
-const signUpFailure = () => {}
+const signUpFailure = () => {
+  successFail()
+}
 
 const signInSuccess = (response) => {
   store.user = response.user
-  $('#sign-in-form').addClass('hidden')
-  $('#sign-up-form').hide()
-  $('#change-password-form').removeClass('hidden')
+  $('#change-password').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
   $('#show-one-log').removeClass('hidden')
   $('#show-all-logs').removeClass('hidden')
@@ -21,30 +22,55 @@ const signInSuccess = (response) => {
   $('#update-log-form').removeClass('hidden')
   $('#destroy-log').removeClass('hidden')
   $('.reset').trigger('reset')
+  $('.jumbo-content').addClass('hidden')
+  successAlert()
 }
 
-const signInFailure = () => {}
+const signInFailure = () => {
+  $('.reset').trigger('reset')
+  successFail()
+}
 
 const passwordChangeSuccess = () => {
   $('.reset').trigger('reset')
+  successAlert()
 }
 
-const passwordChangeFailure = () => {}
+const passwordChangeFailure = () => {
+  $('.reset').trigger('reset')
+  successFail()
+}
 
 const signOutSuccess = () => {
-  $('#sign-in-form').removeClass('hidden')
   $('#sign-out').addClass('hidden')
-  $('#change-password-form').addClass('hidden')
+  $('#change-password').addClass('hidden')
   $('#show-one-log').addClass('hidden')
   $('#show-all-logs').addClass('hidden')
-  $('#sign-up-form').show()
   $('#log-form').addClass('hidden')
   $('#update-log-form').addClass('hidden')
   $('#destroy-log').addClass('hidden')
-  $('#content').empty()
+  $('#content-3').empty()
+  $('.jumbo-content').removeClass('hidden')
+  successAlert()
 }
 
-const signOutFailure = () => {}
+const signOutFailure = () => {
+  successFail()
+}
+
+const successAlert = () => {
+  $('#content').removeClass('hidden')
+  setTimeout(() => {
+    $('#content').addClass('hidden')
+  }, 3000)
+}
+
+const successFail = () => {
+  $('#content-2').removeClass('hidden')
+  setTimeout(() => {
+    $('#content-2').addClass('hidden')
+  }, 3000)
+}
 
 module.exports = {
   signUpSuccess,

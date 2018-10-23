@@ -14,8 +14,8 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top" id="mainNav">
-    <!-- <div class="container"> -->
     <a class="navbar-brand">VMC</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,30 +24,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <ul class="navbar-nav navbar-right">
-          <li id="change-password-form" class="dropdown hidden">
-            <a class="dropdown-toggle" data-toggle="dropdown"><b>Change Password</b> <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li>
-                <div class="row">
-                  <div class="max-auto">
-                    <form class="px-4 py-3 reset">
-                      <label>Enter Old Password</label>
-                      <div class="form-group">
-                        <input required class="form-control input-md" placeholder="Old Password" name="passwords[old]" type="password">
-                      </div>
-                      <label>Enter New Password</label>
-                      <div class="form-group">
-                        <input required class="form-control input-md" placeholder="New Password" name="passwords[new]" type="password">
-                      </div>
-                      <div class="form-group">
-                        <input class="btn btn-md btn-primary btn-block" value="Submit" type="submit">
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
+          <div class="text-left">
+            <a id="change-password" class="hidden" data-toggle="modal" data-target="#modalChangePasswordForm"> Change Password </a>
+          </div>
         </ul>
         <ul class="navbar-nav navbar-right">
           <li class="nav-item">
@@ -58,50 +37,65 @@
     </div>
   </nav>
 
+  <div id="content" class="hidden">
+    <div class="col">
+      <div class="alert alert-success" role="alert">
+        <strong>Success!!!</strong>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-2" class="hidden">
+    <div class="col">
+      <div class="alert alert-danger" role="alert">
+        <strong>Failed, Try Again!!!</strong>
+      </div>
+    </div>
+  </div>
+
   <div class="container-fluid">
     <div class="jumbotron jumbo-content">
-      <br>
       <h1>Vertical Mile Challenge</h1>
       <br>
       <p>Are you ready to take on the Vertical Mile Challenge!</p>
       <p>Sign up now and keep track of your progress towards your goals.</p>
-      <div class="text-left">
-        <a class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Sign Up Now</a>
-      </div>
-      <br>
-      <p>Already have an account? Sign in now and log your progress!
         <div class="text-left">
-          <a class="btn btn-success" data-toggle="modal" data-target="#modalSignInForm">Sign In Now</a>
+          <a class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a>
+        </div>
+      <br>
+      <p>Have an account? Sign in now and log your progress!
+        <div class="text-left">
+          <a class="btn btn-success" data-toggle="modal" data-target="#modalSignInForm">Sign In</a>
         </div>
     </div>
   </div>
 
   <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content reset">
+      <div class="modal-content">
         <div class="modal-header text-center">
           <h4 class="modal-title w-100 font-weight-bold">Sign Up</h4>
           <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="sign-up-form" class="modal-body mx-3">
+        <form id="sign-up-form" class="modal-body mx-3 reset">
           <div class="md-form mb-4">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input required type="email" name="credentials[email]" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+            <label data-error="wrong" data-success="right" for="orangeForm-email">Enter your email</label>
+            <input required type="email" name="credentials[email]" placeholder="email@example.com" class="form-control validate">
           </div>
 
           <div class="md-form mb-4">
             <i class="fa fa-lock prefix grey-text"></i>
-            <input required type="password" name="credentials[password]" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Set your password</label>
+            <input required type="password" name="credentials[password]" placeholder="Password" class="form-control validate">
           </div>
 
           <div class="md-form mb-4">
             <i class="fa fa-lock prefix grey-text"></i>
-            <input required type="password" name="credentials[password_confirmation]" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="orangeForm-pass">Confirm password</label>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Confirm your password</label>
+            <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control validate">
           </div>
 
           <div class="modal-footer d-flex justify-content-center">
@@ -114,24 +108,54 @@
 
   <div class="modal fade" id="modalSignInForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content reset">
+      <div class="modal-content">
         <div class="modal-header text-center">
           <h4 class="modal-title w-100 font-weight-bold">Sign In</h4>
           <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form id="sign-in-form" class="modal-body mx-3">
+        <form id="sign-in-form" class="modal-body mx-3 reset">
           <div class="md-form mb-4">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input required type="email" name="credentials[email]" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+            <label data-error="wrong" data-success="right" for="orangeForm-email">Enter email</label>
+            <input required type="email" name="credentials[email]" placeholder="email@example.com" class="form-control validate">
           </div>
 
           <div class="md-form mb-4">
             <i class="fa fa-lock prefix grey-text"></i>
-            <input required type="password" name="credentials[password]" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Enter password</label>
+            <input required type="password" name="credentials[password]" placeholder="Password" class="form-control validate">
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalChangePasswordForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Change Password</h4>
+          <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="change-password-form" class="modal-body mx-3 reset">
+          <div class="md-form mb-4">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-email">Enter Old Password</label>
+            <input required type="password" name="passwords[old]" placeholder="Old Password" class="form-control validate">
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fa fa-lock prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Enter New Password</label>
+            <input required type="password" name="passwords[new]" placeholder="New Password" class="form-control validate">
           </div>
 
           <div class="modal-footer d-flex justify-content-center">
@@ -224,7 +248,7 @@
     </div>
   </div>
 
-  <div id="content">
+  <div id="content-3">
 
   </div>
 
