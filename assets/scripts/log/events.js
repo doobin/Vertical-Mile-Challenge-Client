@@ -15,7 +15,7 @@ const onNewLog = (event) => {
 
 const onShowAllLogs = (event) => {
   event.preventDefault()
-  api.getAllLogs()
+  api.showAllLogs()
     .then(ui.showAllLogsSuccess)
     .catch(ui.showAllLogsFailure)
 }

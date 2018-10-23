@@ -14,7 +14,7 @@ const newLog = (logData) => {
   })
 }
 
-const getAllLogs = () => {
+const showAllLogs = () => {
   console.log()
   return $.ajax({
     url: config.apiUrl + `/logs`,
@@ -65,7 +65,7 @@ const destroyLog = (logData) => {
 
 module.exports = {
   newLog,
-  getAllLogs,
+  showAllLogs,
   showOneLog,
   updateLog,
   destroyLog
