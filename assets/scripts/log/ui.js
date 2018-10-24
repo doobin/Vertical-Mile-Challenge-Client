@@ -24,6 +24,7 @@ const showAllLogsSuccess = (response) => {
 }
 
 const showAllLogsFailure = () => {
+  $('#content-3').empty()
   $('.reset').trigger('reset')
   successFail()
 }
@@ -44,6 +45,7 @@ const showOneLogSuccess = (response) => {
 }
 
 const showOneLogFailure = () => {
+  $('#content-3').empty()
   $('.reset').trigger('reset')
   successFail()
 }
