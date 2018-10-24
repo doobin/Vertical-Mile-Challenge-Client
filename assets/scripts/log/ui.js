@@ -20,7 +20,6 @@ const showAllLogsSuccess = (response) => {
   for (let i = 0; i < response.logs.length; i++) {
     totalFeet += response.logs[i].feet
   }
-  console.log(totalFeet)
   return totalFeet
 }
 

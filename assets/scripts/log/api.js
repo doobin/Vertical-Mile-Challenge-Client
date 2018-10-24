@@ -15,7 +15,6 @@ const newLog = (logData) => {
 }
 
 const showAllLogs = () => {
-  console.log()
   return $.ajax({
     url: config.apiUrl + `/logs`,
     method: 'GET',
@@ -26,7 +25,6 @@ const showAllLogs = () => {
 }
 
 const showOneLog = (logData) => {
-  console.log(logData)
   const logId = logData.log.id
   return $.ajax({
     url: config.apiUrl + `/logs/${logId}`,
@@ -39,7 +37,6 @@ const showOneLog = (logData) => {
 
 const updateLog = (logData) => {
   const logId = logData.log.id
-  console.log(logId)
   return $.ajax({
     url: config.apiUrl + `/logs/${logId}`,
     method: 'PATCH',
@@ -52,7 +49,6 @@ const updateLog = (logData) => {
 
 const destroyLog = (logData) => {
   const logId = logData.log.id
-  console.log(logId)
   return $.ajax({
     url: config.apiUrl + `/logs/${logId}`,
     method: 'DELETE',

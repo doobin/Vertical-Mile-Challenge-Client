@@ -7,7 +7,6 @@ const ui = require('./ui.js')
 const onNewLog = (event) => {
   event.preventDefault()
   const logData = getFormFields(event.target)
-  console.log(logData)
   api.newLog(logData)
     .then(ui.newLogSuccess)
     .catch(ui.newLogFailure)
