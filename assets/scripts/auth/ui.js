@@ -4,11 +4,13 @@ const store = require('../store.js')
 
 const signUpSuccess = () => {
   $('.reset').trigger('reset')
+  $('#modalRegisterForm').modal('hide')
   successAlert()
 }
 
 const signUpFailure = () => {
   $('.reset').trigger('reset')
+  $('#modalRegisterForm').modal('hide')
   successFail()
 }
 
@@ -23,20 +25,24 @@ const signInSuccess = (response) => {
   $('#destroy-log').removeClass('hidden')
   $('.reset').trigger('reset')
   $('.jumbo-content').addClass('hidden')
+  $('#modalSignInForm').modal('hide')
   successAlert()
 }
 
 const signInFailure = () => {
+  $('#modalSignInForm').modal('hide')
   $('.reset').trigger('reset')
   successFail()
 }
 
 const passwordChangeSuccess = () => {
+  $('#modalChangePasswordForm').modal('hide')
   $('.reset').trigger('reset')
   successAlert()
 }
 
 const passwordChangeFailure = () => {
+  $('#modalChangePasswordForm').modal('hide')
   $('.reset').trigger('reset')
   successFail()
 }

@@ -3,8 +3,8 @@
 const store = require('../store.js')
 
 const showAllLogsSuccess = (response) => {
-  $('#content-3').html('')
   successAlert()
+  $('#content-3').html('')
   response.logs.forEach(log => {
     const logHTML = (`
       <h4>Log ID: ${log.id}</h4>
@@ -16,11 +16,6 @@ const showAllLogsSuccess = (response) => {
     $('#content-3').append(logHTML)
     $('.reset').trigger('reset')
   })
-  let totalFeet = 0
-  for (let i = 0; i < response.logs.length; i++) {
-    totalFeet += response.logs[i].feet
-  }
-  return totalFeet
 }
 
 const showAllLogsFailure = () => {
@@ -101,6 +96,14 @@ const successFail = () => {
     $('#content-2').addClass('hidden')
   }, 3000)
 }
+
+// const accumFeet = (response) => {
+//   let totalFeet = 0
+//   for (let i = 0; i < response.logs.length; i++) {
+//     totalFeet += response.logs[i].feet
+//   }
+//   return totalFeet
+// }
 
 module.exports = {
   showAllLogsSuccess,
