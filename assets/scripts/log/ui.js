@@ -16,11 +16,7 @@ const showAllLogsSuccess = (response) => {
     $('#content-3').append(logHTML)
     $('.reset').trigger('reset')
   })
-  let totalFeet = 0
-  for (let i = 0; i < response.logs.length; i++) {
-    totalFeet += response.logs[i].feet
-  }
-  return totalFeet
+  accumFeet(response)
 }
 
 const showAllLogsFailure = () => {
@@ -86,6 +82,15 @@ const destroyLogFailure = () => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successFail()
+}
+
+const accumFeet = (response) => {
+  let totalFeet = 0
+  for (let i = 0; i < response.logs.length; i++) {
+    totalFeet += response.logs[i].feet
+  }
+  console.log(totalFeet)
+  return totalFeet
 }
 
 const successAlert = () => {
