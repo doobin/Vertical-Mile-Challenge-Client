@@ -1,13 +1,16 @@
 'use strict'
 
 const store = require('../store.js')
+const showLogsEvents = require('./show-logs-events.js')
 
 const signUpSuccess = () => {
+  $('#modalRegisterForm').modal('hide')
   $('.reset').trigger('reset')
   successAlert()
 }
 
 const signUpFailure = () => {
+  $('#modalRegisterForm').modal('hide')
   $('.reset').trigger('reset')
   successFail()
 }
@@ -22,11 +25,15 @@ const signInSuccess = (response) => {
   $('#update-log-form').removeClass('hidden')
   $('#destroy-log').removeClass('hidden')
   $('.reset').trigger('reset')
+  $('#sign-in-jumbotron').removeClass('hidden')
   $('.jumbo-content').addClass('hidden')
+  $('#modalSignInForm').modal('hide')
   successAlert()
+  showLogsEvents.onShowAllLogs()
 }
 
 const signInFailure = () => {
+  $('#modalSignInForm').modal('hide')
   $('.reset').trigger('reset')
   successFail()
 }
@@ -50,6 +57,7 @@ const signOutSuccess = () => {
   $('#update-log-form').addClass('hidden')
   $('#destroy-log').addClass('hidden')
   $('#content-3').empty()
+  $('#sign-in-jumbotron').addClass('hidden')
   $('.jumbo-content').removeClass('hidden')
   successAlert()
 }

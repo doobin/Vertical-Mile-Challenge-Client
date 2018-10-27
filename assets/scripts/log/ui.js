@@ -2,28 +2,31 @@
 
 const store = require('../store.js')
 
-const showAllLogsSuccess = (response) => {
-  $('#content-3').html('')
-  successAlert()
-  response.logs.forEach(log => {
-    const logHTML = (`
-      <h4>Log ID: ${log.id}</h4>
-      <p>Date: ${log.date}<p>
-      <p>Vertical Feet: ${log.feet}</p>
-      <p>Activity: ${log.activity}</p>
-      <p>User ID: ${log.user_id}</p>
-      `)
-    $('#content-3').append(logHTML)
-    $('.reset').trigger('reset')
-  })
-  accumFeet(response)
-}
+// const showAllLogsSuccess = (response) => {
+//   $('#content-3').html('')
+//   successAlert()
+//   if (response.logs.length === 0) {
+//     $('#content-3').html('No submitted Logs! Please submit a Log.')
+//   } else {
+//     response.logs.forEach(log => {
+//       const logHTML = (`
+//       <h4>Log ID: ${log.id}</h4>
+//       <p>Date: ${log.date}<p>
+//       <p>Vertical Feet: ${log.feet}</p>
+//       <p>Activity: ${log.activity}</p>
+//       <p>User ID: ${log.user_id}</p>
+//       `)
+//       $('#content-3').append(logHTML)
+//       $('.reset').trigger('reset')
+//     })
+//   }
+// }
 
-const showAllLogsFailure = () => {
-  $('#content-3').empty()
-  $('.reset').trigger('reset')
-  successFail()
-}
+// const showAllLogsFailure = () => {
+//   $('#content-3').empty()
+//   $('.reset').trigger('reset')
+//   successFail()
+// }
 
 const showOneLogSuccess = (response) => {
   $('#content-3').html('')
@@ -84,14 +87,14 @@ const destroyLogFailure = () => {
   successFail()
 }
 
-const accumFeet = (response) => {
-  let totalFeet = 0
-  for (let i = 0; i < response.logs.length; i++) {
-    totalFeet += response.logs[i].feet
-  }
-  console.log(totalFeet)
-  return totalFeet
-}
+// const accumFeetRun = (response) => {
+//   let totalFeet = 0
+//   for (let i = 0; i < response.logs.length; i++) {
+//     totalFeet += response.logs[i].activity.hike.feet
+//   }
+//   console.log(totalFeet)
+//   return totalFeet
+// }
 
 const successAlert = () => {
   $('#content').removeClass('hidden')
@@ -108,8 +111,8 @@ const successFail = () => {
 }
 
 module.exports = {
-  showAllLogsSuccess,
-  showAllLogsFailure,
+  // showAllLogsSuccess,
+  // showAllLogsFailure,
   showOneLogSuccess,
   showOneLogFailure,
   newLogSuccess,
