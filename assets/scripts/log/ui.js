@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const showLogsEvents = require('../auth/show-logs-events.js')
 
 // const showAllLogsSuccess = (response) => {
 //   $('#content-3').html('')
@@ -54,6 +55,7 @@ const newLogSuccess = (data) => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()
+  showLogsEvents.onShowAllLogs()
 }
 
 const newLogFailure = () => {
@@ -67,6 +69,7 @@ const updateLogSuccess = (data) => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()
+  showLogsEvents.onShowAllLogs()
 }
 
 const updateLogFailure = () => {
@@ -79,6 +82,7 @@ const destroyLogSuccess = (data) => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()
+  showLogsEvents.onShowAllLogs()
 }
 
 const destroyLogFailure = () => {

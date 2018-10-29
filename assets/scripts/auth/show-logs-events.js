@@ -27,8 +27,10 @@ const showAllLogsSuccess = (response) => {
     const logHTML = (`
       <h4>Hello ${store.user.email},</h4>
       `)
+    const totalFeet = accumFeet(response)
     $('#sign-in-jumbotron').html(
-      logHTML + 'You have logged ' + accumFeet(response) + ' feet.'
+      logHTML + 'You have logged ' + totalFeet + ' feet. You only have ' +
+      Math.abs(totalFeet - 5280) + ' feet to go!'
     )
     $('.reset').trigger('reset')
   }
@@ -41,6 +43,7 @@ const showAllLogsFailure = () => {
 }
 
 const accumFeet = (response) => {
+  console.log(response)
   let totalFeet = 0
   for (let i = 0; i < response.logs.length; i++) {
     totalFeet += response.logs[i].feet
