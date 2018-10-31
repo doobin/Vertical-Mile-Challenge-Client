@@ -2,7 +2,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const onShowAllLogs = () => {
-  // event.preventDefault()
   showAllLogs()
     .then(showAllLogsSuccess)
     .catch(showAllLogsFailure)
@@ -19,18 +18,25 @@ const showAllLogs = () => {
 }
 
 const showAllLogsSuccess = (response) => {
-  // $('.jumbo-content').html(accumFeet(response))
   successAlert()
+  const logHTML = (`
+    <h4>Hello ${store.user.email},</h4>
+    `)
+  const logButton = (`
+    <div class="text-left">
+      <a id="logButton" class="btn btn-success" data-toggle="modal" data-target="#modalLogForm">Add Log</a>
+    </div>
+    `)
   if (response.logs.length === 0) {
-    $('#sign-in-jumbotron').html('No submitted Logs! Please submit a Log.')
+    $('#sign-in-jumbotron').html(
+      logHTML + 'No Logs submitted! Please Add a Log.' +
+      `<div>${logButton}</div>`
+    )
   } else {
-    const logHTML = (`
-      <h4>Hello ${store.user.email},</h4>
-      `)
     const totalFeet = accumFeet(response)
     $('#sign-in-jumbotron').html(
-      logHTML + 'You have logged ' + totalFeet + ' feet. You only have ' +
-      Math.abs(totalFeet - 5280) + ' feet to go!'
+      logHTML + 'You have logged ' + totalFeet + ' feet. Only ' +
+      (5280 - totalFeet) + ' feet to go!' + `<div>${logButton}</div>`
     )
     $('.reset').trigger('reset')
   }

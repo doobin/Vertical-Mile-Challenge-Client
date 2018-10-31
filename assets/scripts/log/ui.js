@@ -52,6 +52,7 @@ const showOneLogFailure = () => {
 
 const newLogSuccess = (data) => {
   store.log = data.log
+  $('#modalLogForm').modal('hide')
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()

@@ -39,6 +39,7 @@ const signInFailure = () => {
 }
 
 const passwordChangeSuccess = () => {
+  $('#modalChangePasswordForm').modal('hide')
   $('.reset').trigger('reset')
   successAlert()
 }
