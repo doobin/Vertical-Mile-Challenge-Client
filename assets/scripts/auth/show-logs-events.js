@@ -52,12 +52,10 @@ const showAllLogsFailure = () => {
 }
 
 const accumFeet = (response) => {
-  console.log(response)
   let totalFeet = 0
   for (let i = 0; i < response.logs.length; i++) {
     totalFeet += response.logs[i].feet
   }
-  console.log(totalFeet)
   return totalFeet
 }
 

@@ -12,13 +12,6 @@ const onNewLog = (event) => {
     .catch(ui.newLogFailure)
 }
 
-// const onShowAllLogs = (event) => {
-//   event.preventDefault()
-//   api.showAllLogs()
-//     .then(ui.showAllLogsSuccess)
-//     .catch(ui.showAllLogsFailure)
-// }
-
 const onShowOneLog = (event) => {
   event.preventDefault()
   const logData = getFormFields(event.target)
@@ -44,7 +37,6 @@ const onDestroyLog = (event) => {
 }
 
 module.exports = {
-  // onShowAllLogs,
   onNewLog,
   onShowOneLog,
   onUpdateLog,
