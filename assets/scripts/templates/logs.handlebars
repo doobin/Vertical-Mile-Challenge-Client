@@ -1,0 +1,26 @@
+{{#each logs as |log|}}
+
+  <div class="card text-center">
+    <div class="card-header">
+      <h5 data-id="{{log.id}}">{{log.date}}</h5>
+    </div>
+      <div class="card-body">
+        <section data-id="{{log.id}}">
+          <p>{{#if log.feet}}
+            Feet: {{log.feet}}
+            {{else}}
+            No log provided.
+            {{/if}}
+          </p>
+          <p>{{#if log.activity}}
+            Activity: {{log.activity}}
+            {{else}}
+            No activity provided.
+            {{/if}}
+          </p>
+          <i class="fas fa-trash-alt" aria-hidden="true"></i>
+        </section>
+      </div>
+  </div>
+
+{{/each}}

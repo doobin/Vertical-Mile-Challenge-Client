@@ -9,6 +9,11 @@
   padding: 30px;
 }
 
+#sign-in-jumbotron {
+  margin-top: 4em;
+  padding: 30px;
+}
+
 #content {
   margin: 4em 0;
 }
@@ -33,4 +38,17 @@
 #sign-out {
   margin: 10px;
   cursor: pointer;
+}
+
+#logButton {
+  color: white;
+  margin-top: 15px;
+}
+
+#signUpButton, #signInButton {
+  color: white;
+}
+
+.card {
+  margin: 10px;
 }

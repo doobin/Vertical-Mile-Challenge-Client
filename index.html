@@ -7,6 +7,7 @@
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -60,13 +61,19 @@
       <p>Are you ready to take on the Vertical Mile Challenge!</p>
       <p>Sign up now and keep track of your progress towards your goals.</p>
         <div class="text-left">
-          <a class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a>
+          <a id="signUpButton" class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a>
         </div>
       <br>
       <p>Have an account? Sign in now and log your progress!
         <div class="text-left">
-          <a class="btn btn-success" data-toggle="modal" data-target="#modalSignInForm">Sign In</a>
+          <a id="signInButton" class="btn btn-success" data-toggle="modal" data-target="#modalSignInForm">Sign In</a>
         </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="jumbotron hidden" id="sign-in-jumbotron">
+      <button type="button" class="btn btn-primary" name="button">Log</button>
     </div>
   </div>
 
@@ -147,7 +154,7 @@
         </div>
         <form id="change-password-form" class="modal-body mx-3 reset">
           <div class="md-form mb-4">
-            <i class="fa fa-envelope prefix grey-text"></i>
+            <i class="fa fa-lock prefix grey-text"></i>
             <label data-error="wrong" data-success="right" for="orangeForm-email">Enter Old Password</label>
             <input required type="password" name="passwords[old]" placeholder="Old Password" class="form-control validate">
           </div>
@@ -166,8 +173,50 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modalLogForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Log</h4>
+          <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="log-form" class="modal-body mx-3 reset">
+          <div class="md-form mb-4">
+            <i class="fas fa-calendar-alt prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-email">Select Date</label>
+            <input required type="date" name="log[date]" placeholder="MM-DD-YYYY" class="form-control validate">
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-sort-numeric-up prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Elevation Gain</label>
+            <input required type="text" name="log[feet]" placeholder="Enter Feet" class="form-control validate">
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-hiking prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Select Activity</label>
+            <select required class="form-control input-md" name="log[activity]">
+              <option value="">Select Activity</option>
+              <option value="hike">Hike</option>
+              <option value="run">Run</option>
+              <option value="climb">Climb</option>
+              <option value="ride">Ride</option>
+            </select>
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="container-fluid">
-    <div class="row">
+<!-- <div class="row">
       <div id="log-form" class="col-md-8 mx-auto hidden">
         <div class="card card-body">
           <h3 class="text-center mb-4">Log</h3>
@@ -191,7 +240,7 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="row">
       <div id="update-log-form" class="col-md-8 mx-auto hidden">
@@ -236,14 +285,14 @@
       </div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <div id="show-all-logs" class="col-md-8 mx-auto hidden">
         <div class="card card-body">
           <h3 class="text-center mb-4">Show All Logs</h3>
           <input data-toggle="modal" data-target="#modalShowForm" class="btn btn-md btn-primary btn-block" value="Show All" type="submit">
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="row">
       <div id="show-one-log" class="col-md-8 mx-auto hidden">
@@ -258,9 +307,10 @@
         </div>
       </div>
     </div>
+
   </div>
 
-  <div id="modalShowForm" class="modal" tabindex="-1" role="dialog">
+  <!-- <div id="modalShowForm" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -274,6 +324,10 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+  <div id="handlebarsContent" class="container-fluid d-flex align-content-stretch flex-wrap">
+
   </div>
 
 </body>
