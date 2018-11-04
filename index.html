@@ -7,6 +7,7 @@
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -153,7 +154,7 @@
         </div>
         <form id="change-password-form" class="modal-body mx-3 reset">
           <div class="md-form mb-4">
-            <i class="fa fa-envelope prefix grey-text"></i>
+            <i class="fa fa-lock prefix grey-text"></i>
             <label data-error="wrong" data-success="right" for="orangeForm-email">Enter Old Password</label>
             <input required type="password" name="passwords[old]" placeholder="Old Password" class="form-control validate">
           </div>
@@ -183,19 +184,19 @@
         </div>
         <form id="log-form" class="modal-body mx-3 reset">
           <div class="md-form mb-4">
-            <i class="fa fa-envelope prefix grey-text"></i>
+            <i class="fas fa-calendar-alt prefix grey-text"></i>
             <label data-error="wrong" data-success="right" for="orangeForm-email">Select Date</label>
             <input required type="date" name="log[date]" placeholder="MM-DD-YYYY" class="form-control validate">
           </div>
 
           <div class="md-form mb-4">
-            <i class="fa fa-lock prefix grey-text"></i>
+            <i class="fas fa-sort-numeric-up prefix grey-text"></i>
             <label data-error="wrong" data-success="right" for="orangeForm-pass">Elevation Gain</label>
             <input required type="text" name="log[feet]" placeholder="Enter Feet" class="form-control validate">
           </div>
 
           <div class="md-form mb-4">
-            <i class="fa fa-lock prefix grey-text"></i>
+            <i class="fas fa-hiking prefix grey-text"></i>
             <label data-error="wrong" data-success="right" for="orangeForm-pass">Select Activity</label>
             <select required class="form-control input-md" name="log[activity]">
               <option value="">Select Activity</option>
@@ -214,8 +215,8 @@
     </div>
   </div>
 
-  <!-- <div class="container-fluid">
-    <div class="row">
+  <div class="container-fluid">
+<!-- <div class="row">
       <div id="log-form" class="col-md-8 mx-auto hidden">
         <div class="card card-body">
           <h3 class="text-center mb-4">Log</h3>
@@ -306,9 +307,10 @@
         </div>
       </div>
     </div>
+
   </div>
 
-  <div id="modalShowForm" class="modal" tabindex="-1" role="dialog">
+  <!-- <div id="modalShowForm" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -322,6 +324,10 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+  <div id="handlebarsContent" class="container-fluid d-flex align-content-stretch flex-wrap">
+
   </div>
 
 </body>

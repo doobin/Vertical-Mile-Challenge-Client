@@ -59,6 +59,7 @@ const signOutSuccess = () => {
   $('#destroy-log').addClass('hidden')
   $('#content-3').empty()
   $('#sign-in-jumbotron').addClass('hidden')
+  $('#handlebarsContent').empty()
   $('.jumbo-content').removeClass('hidden')
   successAlert()
 }

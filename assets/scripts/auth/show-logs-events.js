@@ -1,5 +1,6 @@
 const config = require('../config.js')
 const store = require('../store.js')
+const showLogsTemplate = require('../templates/logs.handlebars')
 
 const onShowAllLogs = () => {
   showAllLogs()
@@ -19,6 +20,8 @@ const showAllLogs = () => {
 
 const showAllLogsSuccess = (response) => {
   successAlert()
+  const showLogsHTML = showLogsTemplate({ logs: response.logs })
+  $('#handlebarsContent').html(showLogsHTML)
   const logHTML = (`
     <h4>Hello ${store.user.email},</h4>
     `)
