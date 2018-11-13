@@ -1,28 +1,8 @@
 'use strict'
 
 const store = require('../store.js')
-const showLogsEvents = require('../auth/show-logs-events.js')
-
-const showOneLogSuccess = (response) => {
-  $('#content-3').html('')
-  const log = response.log
-  const logHTML = (`
-    <h4>Log ID: ${log.id}</h4>
-    <p>Date: ${log.date}<p>
-    <p>Vertical Feet: ${log.feet}</p>
-    <p>Activity: ${log.activity}</p>
-    <p>User ID: ${log.user_id}</p>
-    `)
-  $('#content-3').append(logHTML)
-  $('.reset').trigger('reset')
-  successAlert()
-}
-
-const showOneLogFailure = () => {
-  $('#content-3').empty()
-  $('.reset').trigger('reset')
-  successFail()
-}
+// const showLogsEvents = require('../auth/show-logs-events.js')
+const showLogsTemplate = require('../templates/logs.handlebars')
 
 const newLogSuccess = (data) => {
   store.log = data.log
@@ -30,7 +10,7 @@ const newLogSuccess = (data) => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()
-  showLogsEvents.onShowAllLogs()
+  // showLogsEvents.onShowAllLogs()
 }
 
 const newLogFailure = () => {
@@ -44,7 +24,7 @@ const updateLogSuccess = (data) => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()
-  showLogsEvents.onShowAllLogs()
+  // showLogsEvents.onShowAllLogs()
 }
 
 const updateLogFailure = () => {
@@ -54,16 +34,53 @@ const updateLogFailure = () => {
 }
 
 const destroyLogSuccess = (data) => {
-  $('.reset').trigger('reset')
-  $('#content-3').empty()
   successAlert()
-  showLogsEvents.onShowAllLogs()
+  // showLogsEvents.onShowAllLogs()
 }
 
 const destroyLogFailure = () => {
-  $('.reset').trigger('reset')
-  $('#content-3').empty()
   successFail()
+}
+
+const showAllLogsSuccess = (response) => {
+  successAlert()
+  const showLogsHTML = showLogsTemplate({ logs: response.logs })
+  $('#handlebarsContent').html(showLogsHTML)
+  const logHTML = (`
+    <h4>Hello ${store.user.email},</h4>
+    `)
+  const logButton = (`
+    <div class="text-left">
+      <a id="logButton" class="btn btn-success" data-toggle="modal" data-target="#modalLogForm">Add Log</a>
+    </div>
+    `)
+  if (response.logs.length === 0) {
+    $('#sign-in-jumbotron').html(
+      logHTML + 'No Logs submitted! Please Add a Log.' +
+      `<div>${logButton}</div>`
+    )
+  } else {
+    const totalFeet = accumFeet(response)
+    $('#sign-in-jumbotron').html(
+      logHTML + 'You have logged ' + totalFeet + ' feet. Only ' +
+      (5280 - totalFeet) + ' feet to go!' + `<div>${logButton}</div>`
+    )
+    $('.reset').trigger('reset')
+  }
+}
+
+const showAllLogsFailure = () => {
+  $('#content-3').empty()
+  $('.reset').trigger('reset')
+  successFail()
+}
+
+const accumFeet = (response) => {
+  let totalFeet = 0
+  for (let i = 0; i < response.logs.length; i++) {
+    totalFeet += response.logs[i].feet
+  }
+  return totalFeet
 }
 
 const successAlert = () => {
@@ -81,10 +98,10 @@ const successFail = () => {
 }
 
 module.exports = {
-  showOneLogSuccess,
-  showOneLogFailure,
   newLogSuccess,
   newLogFailure,
+  showAllLogsSuccess,
+  showAllLogsFailure,
   updateLogSuccess,
   updateLogFailure,
   destroyLogSuccess,

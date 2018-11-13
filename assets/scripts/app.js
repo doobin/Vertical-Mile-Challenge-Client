@@ -21,6 +21,5 @@ $(() => {
 $(() => {
   $('#log-form').on('submit', logEvents.onNewLog)
   $('#update-log-form').on('submit', logEvents.onUpdateLog)
-  $('#destroy-log').on('submit', logEvents.onDestroyLog)
-  $('#show-one-log').on('submit', logEvents.onShowOneLog)
+  logEvents.addHandlers()
 })

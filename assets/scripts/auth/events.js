@@ -1,6 +1,7 @@
 'use strict'
 
 const getFormFields = require('../../../lib/get-form-fields.js')
+const logEvents = require('../log/events.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
@@ -17,6 +18,7 @@ const onSignIn = (event) => {
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(logEvents.onShowAllLogs)
     .catch(ui.signInFailure)
 }
 

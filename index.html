@@ -200,10 +200,10 @@
             <label data-error="wrong" data-success="right" for="orangeForm-pass">Select Activity</label>
             <select required class="form-control input-md" name="log[activity]">
               <option value="">Select Activity</option>
-              <option value="hike">Hike</option>
-              <option value="run">Run</option>
-              <option value="climb">Climb</option>
-              <option value="ride">Ride</option>
+              <option value="Hike">Hike</option>
+              <option value="Run">Run</option>
+              <option value="Climb">Climb</option>
+              <option value="Ride">Ride</option>
             </select>
           </div>
 
@@ -215,7 +215,49 @@
     </div>
   </div>
 
-  <div class="container-fluid">
+  <div class="modal fade" id="modalUpdateLogForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Update Log</h4>
+          <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="update-log-form" class="modal-body mx-3 reset">
+          <div class="md-form mb-4">
+            <i class="fas fa-calendar-alt prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-email">Select Date</label>
+            <input required type="date" name="log[date]" placeholder="MM-DD-YYYY" class="form-control validate">
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-sort-numeric-up prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Elevation Gain</label>
+            <input required type="text" name="log[feet]" placeholder="Enter Feet" class="form-control validate">
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-hiking prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Select Activity</label>
+            <select required class="form-control input-md" name="log[activity]">
+              <option value="">Select Activity</option>
+              <option value="Hike">Hike</option>
+              <option value="Run">Run</option>
+              <option value="Climb">Climb</option>
+              <option value="Ride">Ride</option>
+            </select>
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container-fluid">
 
     <div class="row">
       <div id="update-log-form" class="col-md-8 mx-auto hidden">
@@ -244,37 +286,9 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row">
-      <div id="destroy-log" class="col-md-8 mx-auto hidden">
-        <div class="card card-body">
-          <h3 class="text-center mb-4">Delete Log</h3>
-          <form class="reset">
-            <div class="form-group">
-              <input required class="form-control input-md" placeholder="Log ID" name="log[id]" type="text">
-            </div>
-            <input class="btn btn-md btn-primary btn-block" value="Delete" type="submit">
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div id="show-one-log" class="col-md-8 mx-auto hidden">
-        <div class="card card-body">
-          <h3 class="text-center mb-4">Show Log</h3>
-          <form class="reset">
-            <div class="form-group">
-              <input required class="form-control input-md" placeholder="Log ID" name="log[id]" type="text">
-            </div>
-            <input data-toggle="modal" data-target="#modalShowForm" class="btn btn-md btn-primary btn-block" value="Show" type="submit">
-          </form>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <!-- </div> -->
 
   <div id="handlebarsContent" class="container-fluid d-flex align-content-stretch flex-wrap">
 

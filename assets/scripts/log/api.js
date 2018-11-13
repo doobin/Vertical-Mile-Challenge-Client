@@ -14,16 +14,6 @@ const newLog = (logData) => {
   })
 }
 
-const showAllLogs = () => {
-  return $.ajax({
-    url: config.apiUrl + `/logs`,
-    method: 'GET',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    }
-  })
-}
-
 const showOneLog = (logData) => {
   const logId = logData.log.id
   return $.ajax({
@@ -35,8 +25,20 @@ const showOneLog = (logData) => {
   })
 }
 
-const updateLog = (logData) => {
-  const logId = logData.log.id
+const showAllLogs = () => {
+  return $.ajax({
+    url: config.apiUrl + `/logs`,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
+const updateLog = (logId, logData) => {
+  console.log(logId)
+  console.log(logData)
+  // const id = logId
   return $.ajax({
     url: config.apiUrl + `/logs/${logId}`,
     method: 'PATCH',
@@ -47,22 +49,20 @@ const updateLog = (logData) => {
   })
 }
 
-const destroyLog = (logData) => {
-  const logId = logData.log.id
+const destroyLog = (logId) => {
   return $.ajax({
     url: config.apiUrl + `/logs/${logId}`,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`
-    },
-    data: logData
+    }
   })
 }
 
 module.exports = {
   newLog,
-  showAllLogs,
   showOneLog,
+  showAllLogs,
   updateLog,
   destroyLog
 }
