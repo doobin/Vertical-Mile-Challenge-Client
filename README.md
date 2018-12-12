@@ -4,6 +4,11 @@
 
 Vertical Mile Challenege is a app where a user can log their vertical mile gains and keep track of the logs.
 
+Want to try the app!
+
+Sign In: demo@demo.com
+Password: demo
+
 ## Link to API Repository
 
 https://github.com/doobin/Vertical-Mile-Challenge-Rails-API
