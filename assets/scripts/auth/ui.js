@@ -1,8 +1,6 @@
 'use strict'
 
 const store = require('../store.js')
-// const logEvents = require('../log/events.js')
-// const showLogsEvents = require('./show-logs-events.js')
 
 const signUpSuccess = () => {
   $('#modalRegisterForm').modal('hide')
@@ -32,7 +30,6 @@ const signInSuccess = (response) => {
   $('.jumbo-content').addClass('hidden')
   $('#modalSignInForm').modal('hide')
   successAlert()
-  // logEvents.onShowAllLogs()
 }
 
 const signInFailure = () => {

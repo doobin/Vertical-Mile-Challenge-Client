@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('../store.js')
-// const showLogsEvents = require('../auth/show-logs-events.js')
 const showLogsTemplate = require('../templates/logs.handlebars')
 
 const newLogSuccess = (data) => {
@@ -10,7 +9,6 @@ const newLogSuccess = (data) => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()
-  // showLogsEvents.onShowAllLogs()
 }
 
 const newLogFailure = () => {
@@ -24,7 +22,6 @@ const updateLogSuccess = (data) => {
   $('.reset').trigger('reset')
   $('#content-3').empty()
   successAlert()
-  // showLogsEvents.onShowAllLogs()
 }
 
 const updateLogFailure = () => {
@@ -35,7 +32,6 @@ const updateLogFailure = () => {
 
 const destroyLogSuccess = (data) => {
   successAlert()
-  // showLogsEvents.onShowAllLogs()
 }
 
 const destroyLogFailure = () => {

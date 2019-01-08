@@ -36,9 +36,6 @@ const showAllLogs = () => {
 }
 
 const updateLog = (logId, logData) => {
-  console.log(logId)
-  console.log(logData)
-  // const id = logId
   return $.ajax({
     url: config.apiUrl + `/logs/${logId}`,
     method: 'PATCH',
