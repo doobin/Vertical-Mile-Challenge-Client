@@ -23,6 +23,7 @@ https://vertical-mile-challenge.herokuapp.com/
 * CSS5
 * JavaScript
 * jQuery
+* Ruby on Rails
 * AJAX
 * Bootstrap
 
